@@ -1,7 +1,7 @@
 require 'faraday'
 
 require 'lita/adapters/slack/team_data'
-require 'lita/adapters/slack/slack_im'
+# require 'lita/adapters/slack/slack_im'
 require 'lita/adapters/slack/slack_user'
 require 'lita/adapters/slack/slack_channel'
 
@@ -20,11 +20,11 @@ module Lita
           @post_message_config[:unfurl_media] = config.unfurl_media unless config.unfurl_media.nil?
         end
 
-        def im_open(user_id)
-          response_data = call_api("im.open", user: user_id)
+        # def im_open(user_id)
+        #   response_data = call_api("im.open", user: user_id)
 
-          SlackIM.new(response_data["channel"]["id"], user_id)
-        end
+        #   SlackIM.new(response_data["channel"]["id"], user_id)
+        # end
 
         def channels_info(channel_id)
           call_api("channels.info", channel: channel_id)
