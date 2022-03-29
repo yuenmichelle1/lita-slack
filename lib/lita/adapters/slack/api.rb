@@ -33,7 +33,7 @@ module Lita
         def channels_list
           call_api("channels.list")
         end
-
+ 
         def groups_list
           call_api("groups.list")
         end
@@ -70,16 +70,16 @@ module Lita
         end
 
         def rtm_start
-          # response_data = call_api("rtm.start")
           response_data = call_api('rtm.connect')
+          puts response_data
 
           TeamData.new(
-            SlackIM.from_data_array(response_data["ims"]),
+            # SlackIM.from_data_array(response_data["ims"]),
             SlackUser.from_data(response_data["self"]),
-            SlackUser.from_data_array(response_data["users"]),
-            SlackChannel.from_data_array(response_data["channels"]) +
-              SlackChannel.from_data_array(response_data["groups"]),
-            response_data["url"],
+            # SlackUser.from_data_array(response_data["users"]),
+            # SlackChannel.from_data_array(response_data["channels"]) +
+            #   SlackChannel.from_data_array(response_data["groups"]),
+            response_data["url"]
           )
         end
 
