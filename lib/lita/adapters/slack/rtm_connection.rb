@@ -3,10 +3,7 @@ require 'multi_json'
 
 require 'lita/adapters/slack/api'
 require 'lita/adapters/slack/event_loop'
-# require 'lita/adapters/slack/im_mapping'
 require 'lita/adapters/slack/message_handler'
-# require 'lita/adapters/slack/room_creator'
-# require 'lita/adapters/slack/user_creator'
 
 module Lita
   module Adapters
@@ -75,7 +72,6 @@ module Lita
         private
 
         attr_reader :config
-        # attr_reader :im_mapping
         attr_reader :robot
         attr_reader :robot_id
         attr_reader :websocket
