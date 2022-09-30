@@ -4,6 +4,7 @@ require 'multi_json'
 require 'lita/adapters/slack/api'
 require 'lita/adapters/slack/event_loop'
 require 'lita/adapters/slack/message_handler'
+require 'lita/adapters/slack/user_creator'
 
 module Lita
   module Adapters
@@ -21,7 +22,6 @@ module Lita
         def initialize(robot, config, team_data)
           @robot = robot
           @config = config
-          # @im_mapping = IMMapping.new(API.new(config), team_data.ims)
           @websocket_url = team_data.websocket_url
           @robot_id = team_data.self.id
 
